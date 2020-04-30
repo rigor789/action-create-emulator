@@ -975,6 +975,8 @@ async function run() {
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.addPath(`${ANDROID_HOME}/tools`);
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.addPath(`${ANDROID_HOME}/tools/bin`)
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.addPath(`${ANDROID_HOME}/platform-tools`)
+
+  
   
   // create emulator
   const args = [
@@ -983,6 +985,7 @@ async function run() {
     // `--abi 'default/x86'`,
     `--package '${_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('package')}'`
   ]
+  await Object(_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(`sh -c \\"sdkmanager --install '${args.join(' ')}' > /dev/null"`);
   await Object(_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
 }
 
