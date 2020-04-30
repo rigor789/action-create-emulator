@@ -18,7 +18,7 @@ async function run() {
     // `--abi 'default/x86'`,
     `--package '${core.getInput('package')}'`
   ]
-  await exec(`sh -c \\"sdkmanager --install '${args.join(' ')}' > /dev/null"`);
+  await exec(`sh -c \\"sdkmanager --install '${core.getInput('package')}' > /dev/null"`);
   await exec(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
 }
 
