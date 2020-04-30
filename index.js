@@ -8,8 +8,6 @@ async function run() {
   core.addPath(`${ANDROID_HOME}/tools`);
   core.addPath(`${ANDROID_HOME}/tools/bin`)
   core.addPath(`${ANDROID_HOME}/platform-tools`)
-
-  
   
   // create emulator
   const args = [
@@ -18,7 +16,10 @@ async function run() {
     // `--abi 'default/x86'`,
     `--package '${core.getInput('package')}'`
   ]
+  console.log(`Installing packages: ${core.getInput('package')}`)
   await exec(`sh -c \\"sdkmanager --install '${core.getInput('package')}' > /dev/null"`);
+
+  console.log(`Creating emulator...`)
   await exec(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
 }
 
