@@ -1,0 +1,13 @@
+name: 'Create Emulator'
+description: 'Create android emulator'
+inputs:
+  package:
+    description: 'avd --package options'
+    default: 'system-images;android-29;default;x86'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'smartphone'
+  color: 'green'

@@ -1,0 +1,17 @@
+{
+  "name": "action-create-emulator",
+  "private": true,
+  "main": "index.js",
+  "author": "Igor Randjelovic <rigor789@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build index.js -o dist"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/exec": "^1.0.4"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.1"
+  }
+}
