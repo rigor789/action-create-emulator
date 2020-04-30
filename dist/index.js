@@ -981,9 +981,9 @@ async function run() {
     `--force`,
     `--name 'test'`,
     // `--abi 'default/x86'`,
-    `--package 'system-images;android-29;default;x86'`
+    `--package '${_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('package')}'`
   ]
-  await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec.exec(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
+  await Object(_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
 }
 
 // run our async main function

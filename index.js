@@ -16,7 +16,7 @@ async function run() {
     // `--abi 'default/x86'`,
     `--package '${core.getInput('package')}'`
   ]
-  await exec.exec(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
+  await exec(`sh -c \\"echo no | avdmanager create avd ${args.join(' ')}"`);
 }
 
 // run our async main function
