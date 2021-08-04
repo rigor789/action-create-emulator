@@ -1872,7 +1872,7 @@ async function run() {
     `--package '${_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('package')}'`
   ]
   console.log(`Installing packages: ${_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('package')}`)
-  await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(`sh -c "sdkmanager --install '${_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('package')}'"`);
+  await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(`sh -c "echo y | sdkmanager --install '${_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('package')}'"`);
 
   console.log(`Creating emulator...`)
   await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(`sh -c "echo no | avdmanager create avd ${args.join(' ')}"`);

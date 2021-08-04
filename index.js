@@ -17,7 +17,7 @@ async function run() {
     `--package '${core.getInput('package')}'`
   ]
   console.log(`Installing packages: ${core.getInput('package')}`)
-  await exec(`sh -c "sdkmanager --install '${core.getInput('package')}'"`);
+  await exec(`sh -c "echo y | sdkmanager --install '${core.getInput('package')}'"`);
 
   console.log(`Creating emulator...`)
   await exec(`sh -c "echo no | avdmanager create avd ${args.join(' ')}"`);
