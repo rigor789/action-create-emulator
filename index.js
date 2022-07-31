@@ -20,7 +20,7 @@ async function run() {
   const packages = [core.getInput("package")];
   console.log(`Installing packages: ${packages.join(", ")}`);
   await exec(
-    `sh -c "echo y | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install ${packages
+    `sh -c "echo y | sdkmanager --install ${packages
       .map((pkg) => `'${pkg}'`)
       .join(" ")}"`
   );

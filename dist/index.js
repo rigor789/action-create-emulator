@@ -2681,7 +2681,7 @@ async function run() {
   const packages = [core.getInput("package")];
   console.log(`Installing packages: ${packages.join(", ")}`);
   await (0, import_exec.exec)(
-    `sh -c "echo y | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install ${packages.map((pkg) => `'${pkg}'`).join(" ")}"`
+    `sh -c "echo y | sdkmanager --install ${packages.map((pkg) => `'${pkg}'`).join(" ")}"`
   );
   console.log(`Creating emulator...`);
   await (0, import_exec.exec)(`sh -c "echo no | avdmanager create avd ${args.join(" ")}"`);
