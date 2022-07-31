@@ -5,13 +5,13 @@
   "author": "Igor Randjelovic <rigor789@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "ncc build index.js -o dist"
+    "build": "esbuild --bundle --format=cjs --platform=node --outdir=dist ./index.js"
   },
   "dependencies": {
-    "@actions/core": "^1.4.0",
-    "@actions/exec": "^1.1.0"
+    "@actions/core": "^1.9.0",
+    "@actions/exec": "^1.1.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.29.0"
+    "esbuild": "^0.14.51"
   }
 }

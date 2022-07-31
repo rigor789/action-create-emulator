@@ -11,5 +11,4 @@ jobs:
     steps:
     - uses: rigor789/action-create-emulator@main
       with:
-        package: 'system-images;android-31;default;x86'
-
+        package: 'system-images;android-31;default;x86_64'
