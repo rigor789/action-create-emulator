@@ -3,7 +3,7 @@ description: 'Create android emulator'
 inputs:
   package:
     description: 'avd --package options'
-    default: 'system-images;android-32;default;x86'
+    default: 'system-images;android-31;default;x86'
     required: false
 runs:
   using: 'node16'
