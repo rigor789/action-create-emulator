@@ -2687,8 +2687,8 @@ async function run() {
   console.log(`Installing packages: ${packages.join(", ")}`);
   await (0, import_exec.exec)(
     `sh -c "echo y | sdkmanager --install ${packages.map(
-      (pkg) => `'${pkg}' `
-    )}"`
+      (pkg) => `'${pkg}'`
+    ).join(" ")}"`
   );
   console.log(`Creating emulator...`);
   await (0, import_exec.exec)(`sh -c "echo no | avdmanager create avd ${args.join(" ")}"`);

@@ -26,8 +26,8 @@ async function run() {
   console.log(`Installing packages: ${packages.join(", ")}`);
   await exec(
     `sh -c "echo y | sdkmanager --install ${packages.map(
-      (pkg) => `'${pkg}' `
-    )}"`
+      (pkg) => `'${pkg}'`
+    ).join(' ')}"`
   );
 
   console.log(`Creating emulator...`);
