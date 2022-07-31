@@ -2678,10 +2678,14 @@ async function run() {
     `--name 'test'`,
     `--package '${core.getInput("package")}'`
   ];
-  console.log(`Installing packages: ${core.getInput("package")}`);
-  await (0, import_exec.exec)(
-    `sh -c "echo y | sdkmanager --install '${core.getInput("package")}'"`
-  );
+  const packages = [
+    `build-tools;33.0.0`,
+    `cmdline-tools;latest`,
+    `emulator`,
+    core.getInput("package")
+  ];
+  console.log(`Installing packages: ${packages.join(", ")}`);
+  await (0, import_exec.exec)(`sh -c "echo y | sdkmanager --install '${packages.join(";")}'"`);
   console.log(`Creating emulator...`);
   await (0, import_exec.exec)(`sh -c "echo no | avdmanager create avd ${args.join(" ")}"`);
 }

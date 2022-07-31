@@ -17,10 +17,14 @@ async function run() {
     // `--abi 'default/x86'`,
     `--package '${core.getInput("package")}'`,
   ];
-  console.log(`Installing packages: ${core.getInput("package")}`);
-  await exec(
-    `sh -c "echo y | sdkmanager --install '${core.getInput("package")}'"`
-  );
+  const packages = [
+    `build-tools;33.0.0`,
+    `cmdline-tools;latest`,
+    `emulator`,
+    core.getInput("package"),
+  ];
+  console.log(`Installing packages: ${packages.join(", ")}`);
+  await exec(`sh -c "echo y | sdkmanager --install '${packages.join(";")}'"`);
 
   console.log(`Creating emulator...`);
   await exec(`sh -c "echo no | avdmanager create avd ${args.join(" ")}"`);
