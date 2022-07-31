@@ -2669,26 +2669,19 @@ var core = __toESM(require_core());
 var import_exec = __toESM(require_exec());
 var ANDROID_HOME = process.env.ANDROID_HOME;
 async function run() {
-  core.addPath(`${ANDROID_HOME}/cmdline-tools/latest/bin`);
   core.addPath(`${ANDROID_HOME}/tools`);
   core.addPath(`${ANDROID_HOME}/tools/bin`);
   core.addPath(`${ANDROID_HOME}/platform-tools`);
+  core.addPath(`${ANDROID_HOME}/cmdline-tools/latest/bin`);
   const args = [
     `--force`,
     `--name 'test'`,
     `--package '${core.getInput("package")}'`
   ];
-  const packages = [
-    `build-tools;33.0.0`,
-    `cmdline-tools;latest`,
-    `emulator`,
-    core.getInput("package")
-  ];
+  const packages = [core.getInput("package")];
   console.log(`Installing packages: ${packages.join(", ")}`);
   await (0, import_exec.exec)(
-    `sh -c "echo y | sdkmanager --install ${packages.map(
-      (pkg) => `'${pkg}'`
-    ).join(" ")}"`
+    `sh -c "echo y | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install ${packages.map((pkg) => `'${pkg}'`).join(" ")}"`
   );
   console.log(`Creating emulator...`);
   await (0, import_exec.exec)(`sh -c "echo no | avdmanager create avd ${args.join(" ")}"`);
