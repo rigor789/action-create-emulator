@@ -2669,6 +2669,7 @@ var core = __toESM(require_core());
 var import_exec = __toESM(require_exec());
 var ANDROID_HOME = process.env.ANDROID_HOME;
 async function run() {
+  core.addPath(`${ANDROID_HOME}/cmdline-tools/latest/bin`);
   core.addPath(`${ANDROID_HOME}/tools`);
   core.addPath(`${ANDROID_HOME}/tools/bin`);
   core.addPath(`${ANDROID_HOME}/platform-tools`);

@@ -5,6 +5,7 @@ const ANDROID_HOME = process.env.ANDROID_HOME;
 
 async function run() {
   // add android sdk tools to path
+  core.addPath(`${ANDROID_HOME}/cmdline-tools/latest/bin`);
   core.addPath(`${ANDROID_HOME}/tools`);
   core.addPath(`${ANDROID_HOME}/tools/bin`);
   core.addPath(`${ANDROID_HOME}/platform-tools`);
