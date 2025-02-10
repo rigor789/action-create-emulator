@@ -12,6 +12,6 @@
     "@actions/exec": "^1.1.1"
   },
   "devDependencies": {
-    "esbuild": "^0.14.51"
+    "esbuild": "^0.25.0"
   }
 }
